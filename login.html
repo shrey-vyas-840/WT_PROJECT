@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login | GreenShift</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body { background: linear-gradient(120deg, #e0ffe7 0%, #f5fff7 100%); }
+    .auth-container { max-width: 400px; margin: 5% auto; background: #fff; border-radius: 18px; box-shadow: 0 8px 32px rgba(46,125,50,0.12); padding: 2.5rem 2rem; }
+    .auth-title { text-align: center; font-size: 2rem; color: #23413f; margin-bottom: 1.5rem; }
+    .auth-form label { font-weight: 600; color: #388e3c; }
+    .auth-form input { width: 100%; padding: 0.7rem; margin: 0.5rem 0 1rem 0; border-radius: 8px; border: 1px solid #b2dfdb; }
+    .auth-btn { width: 100%; background: linear-gradient(90deg,#43e97b 0%,#38f9d7 100%); color: #23413f; font-weight: 700; border: none; border-radius: 8px; padding: 0.8rem; font-size: 1.1rem; cursor: pointer; margin-bottom: 1rem; }
+    .switch-link { text-align: center; color: #388e3c; cursor: pointer; text-decoration: underline; }
+    .auth-error { color: #e53935; text-align: center; margin-bottom: 1rem; }
+  </style>
+</head>
+<body>
+  <div class="auth-container" id="authContainer">
+    <div class="auth-title" id="authTitle">Login to GreenShift</div>
+    <form class="auth-form" id="loginForm">
+      <label for="loginEmail">Email</label>
+      <input type="email" id="loginEmail" required />
+      <label for="loginPassword">Password</label>
+      <input type="password" id="loginPassword" required />
+      <button type="submit" class="auth-btn">Login</button>
+      <div class="auth-error" id="loginError"></div>
+    </form>
+    <form class="auth-form" id="signupForm" style="display:none;">
+      <label for="signupName">Name</label>
+      <input type="text" id="signupName" required />
+      <label for="signupEmail">Email</label>
+      <input type="email" id="signupEmail" required />
+      <label for="signupPassword">Password</label>
+      <input type="password" id="signupPassword" required />
+      <button type="submit" class="auth-btn">Sign Up</button>
+      <div class="auth-error" id="signupError"></div>
+    </form>
+    <div class="switch-link" id="switchToSignup">Don't have an account? Sign up</div>
+    <div class="switch-link" id="switchToLogin" style="display:none;">Already have an account? Login</div>
+  </div>
+  <script src="auth.js"></script>
+</body>
+</html>
