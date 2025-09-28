@@ -951,20 +951,21 @@ body {
 .team {
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 3rem;
   justify-content: center;
   margin-top: 2rem;
 }
 
 .team-member {
   flex: 1;
-  min-width: 200px;
+  min-width: 100px;
   text-align: center;
 }
 
 .team-member img {
-  border-radius: 50%;
-  margin-bottom: 0.5rem;
+  width: 200px;
+  border-radius: 25%;
+  margin-bottom: 0.2rem;
   transition: transform 0.3s;
 }
 

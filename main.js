@@ -1,4 +1,5 @@
-    function buildFuelInputs() {
+
+function buildFuelInputs() {
         if (!electricityCalculator) return;
 
         const vehicleTypes = [
@@ -185,72 +186,49 @@ document.addEventListener('DOMContentLoaded', setup);
 
 function setup() {
 
-    // Get DOM elements
-    const categoryBtns = document.querySelectorAll('.category-btn');
-    const electricityCalculator = document.getElementById('electricityCalculator');
-    const calculateBtn = document.getElementById('calculateBtn');
-    const resultsContainer = document.getElementById('resultsContainer');
-
-    // Hide calculate button initially
-    if (calculateBtn) {
-        calculateBtn.style.display = 'none';
-    }
-
-    // Handle category button clicks
-    if (categoryBtns) {
+    // Helper to re-attach listeners after dynamic content
+    function attachCategoryListeners() {
+        const categoryBtns = document.querySelectorAll('.category-btn');
         categoryBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 const category = btn.getAttribute('data-category');
-                
                 // Remove active class from all buttons
                 categoryBtns.forEach(b => b.classList.remove('active'));
-                // Add active class to clicked button
                 btn.classList.add('active');
-
                 // Show calculate button
-                if (calculateBtn) {
-                    calculateBtn.style.display = 'block';
-                }
-
+                const calculateBtn = document.getElementById('calculateBtn');
+                if (calculateBtn) calculateBtn.style.display = 'block';
                 // Clear previous content
-                if (electricityCalculator) {
-                    electricityCalculator.innerHTML = '';
-                }
-                if (resultsContainer) {
-                    resultsContainer.innerHTML = '';
-                }
-
+                const electricityCalculator = document.getElementById('electricityCalculator');
+                const resultsContainer = document.getElementById('resultsContainer');
+                if (electricityCalculator) electricityCalculator.innerHTML = '';
+                if (resultsContainer) resultsContainer.innerHTML = '';
                 // Show appropriate calculator
                 switch(category) {
-                    case 'electricity':
-                        buildElectricityInputs();
-                        break;
-                    case 'water':
-                        buildWaterInputs();
-                        break;
-                    case 'building':
-                        buildBuildingInputs();
-                        break;
-                    case 'fuel':
-                        buildFuelInputs();
-                        break;
-                    case 'overall':
-                        buildOverallInputs();
-                        break;
+                    case 'electricity': buildElectricityInputs(); break;
+                    case 'water': buildWaterInputs(); break;
+                    case 'building': buildBuildingInputs(); break;
+                    case 'fuel': buildFuelInputs(); break;
+                    case 'overall': buildOverallInputs(); break;
                 }
+                // Re-attach listeners after rendering
+                setTimeout(() => { attachCategoryListeners(); attachCalculateListener(); }, 0);
             });
         });
     }
-
-    // Handle calculate button click
-    if (calculateBtn) {
-        calculateBtn.addEventListener('click', () => {
-            const activeCategory = document.querySelector('.category-btn.active');
-            if (activeCategory) {
-                calculateEmissions(activeCategory.getAttribute('data-category'));
-            }
-        });
+    function attachCalculateListener() {
+        const calculateBtn = document.getElementById('calculateBtn');
+        if (calculateBtn) {
+            calculateBtn.onclick = () => {
+                const activeCategory = document.querySelector('.category-btn.active');
+                if (activeCategory) {
+                    calculateEmissions(activeCategory.getAttribute('data-category'));
+                }
+            };
+        }
     }
+    attachCategoryListeners();
+    attachCalculateListener();
 
     // Calculator building functions
     function buildElectricityInputs() {
@@ -663,21 +641,86 @@ function setup() {
     // ...existing code...
 
     function buildOverallInputs() {
-        if (!electricityCalculator) return;
+                if (!electricityCalculator) return;
 
-        electricityCalculator.innerHTML = `
-            <div class="calculator-section">
-                <h3>Overall Carbon Footprint Calculator</h3>
-                <div class="input-group">
-                    <label for="householdMembers">Number of Household Members</label>
-                    <input type="number" id="householdMembers" min="1" value="1">
+                electricityCalculator.innerHTML = `
+                <div class="report-section" style="background:#f5fff7; border-radius:16px; box-shadow:0 4px 16px #43e97b11; padding:2.5rem 2rem; max-width:700px; margin:0 auto;">
+                    <h3 style="color:#23413f; margin-bottom:1.2rem;">Comprehensive Carbon Emission Report</h3>
+                    <form id="reportForm" style="display:flex; flex-direction:column; gap:1.2rem;">
+                        <label style="font-weight:600;">1. Number of People
+                            <span style="font-weight:400; color:#388e3c; display:block; font-size:0.98rem;">How many people live in your home or work in your organization?<br>Example: If you have 4 family members, write “4”.</span>
+                            <input type="number" id="numPeople" min="1" required style="margin-top:0.4rem; padding:0.7rem; border-radius:8px; border:1.5px solid #b2dfdb;">
+                        </label>
+                        <label style="font-weight:600;">2. Electricity Use
+                            <span style="font-weight:400; color:#388e3c; display:block; font-size:0.98rem;">What was the last highest electricity bill do you use remember?<br>Check your electricity bill for “units” or “kWh” used per month.<br>Example: If your bill says 250 units or kWh per month, enter “250”.</span>
+                            <input type="number" id="electricityKwh" min="0" required style="margin-top:0.4rem; padding:0.7rem; border-radius:8px; border:1.5px solid #b2dfdb;">
+                        </label>
+                        <label style="font-weight:600;">3. Cooking Fuel
+                            <span style="font-weight:400; color:#388e3c; display:block; font-size:0.98rem;">Which fuel do you use for cooking? (Pick one or more)</span>
+                            <div style="margin-top:0.4rem; display:flex; gap:1.2rem; flex-wrap:wrap;">
+                                <label>LPG/Cooking Gas: <input type="number" id="lpgCylinders" min="0" placeholder="Cylinders/month" style="width:110px; border-radius:8px; border:1.5px solid #b2dfdb; padding:0.5rem;"></label>
+                                <label>PNG (Piped Gas): <input type="number" id="pngUnits" min="0" placeholder="Units/month" style="width:110px; border-radius:8px; border:1.5px solid #b2dfdb; padding:0.5rem;"></label>
+                                <label>Induction/Electric: <input type="checkbox" id="inductionElectric"></label>
+                            </div>
+                        </label>
+                        <label style="font-weight:600;">4. Vehicle Use
+                            <span style="font-weight:400; color:#388e3c; display:block; font-size:0.98rem;">How many kilometers do you drive per month (all vehicles together)?<br>Example: If you drive 20 km/day and 25 days/month = 500 km/month</span>
+                            <input type="number" id="vehicleKm" min="0" style="margin-top:0.4rem; padding:0.7rem; border-radius:8px; border:1.5px solid #b2dfdb;">
+                            <select id="vehicleType" style="margin-top:0.4rem; border-radius:8px; border:1.5px solid #b2dfdb; padding:0.5rem;">
+                                <option value="petrol">Petrol Car</option>
+                                <option value="diesel">Diesel Car</option>
+                                <option value="bike">Bike/Scooter</option>
+                                <option value="electric">Electric Vehicle</option>
+                            </select>
+                        </label>
+                        <label style="font-weight:600;">5. Public Transport
+                            <span style="font-weight:400; color:#388e3c; display:block; font-size:0.98rem;">How many kilometers do you travel by bus, train, or metro per month?</span>
+                            <input type="number" id="publicKm" min="0" style="margin-top:0.4rem; padding:0.7rem; border-radius:8px; border:1.5px solid #b2dfdb;">
+                            <select id="publicType" style="margin-top:0.4rem; border-radius:8px; border:1.5px solid #b2dfdb; padding:0.5rem;">
+                                <option value="bus">Bus</option>
+                                <option value="train">Train/Metro</option>
+                            </select>
+                        </label>
+                        <label style="font-weight:600;">6. Flights
+                            <span style="font-weight:400; color:#388e3c; display:block; font-size:0.98rem;">How many flights do you take per year?</span>
+                            <input type="number" id="shortFlights" min="0" placeholder="Short (<1000km)" style="margin-top:0.4rem; width:110px; border-radius:8px; border:1.5px solid #b2dfdb; padding:0.5rem;">
+                            <input type="number" id="longFlights" min="0" placeholder="Long (>1000km)" style="margin-top:0.4rem; width:110px; border-radius:8px; border:1.5px solid #b2dfdb; padding:0.5rem;">
+                        </label>
+                        <label style="font-weight:600;">7. Water Use
+                            <span style="font-weight:400; color:#388e3c; display:block; font-size:0.98rem;">How much water do you use per month? (Check your water bill or estimate in litres)</span>
+                            <input type="number" id="waterLitres" min="0" style="margin-top:0.4rem; padding:0.7rem; border-radius:8px; border:1.5px solid #b2dfdb;">
+                        </label>
+                        <label style="font-weight:600;">8. Waste Generation
+                            <span style="font-weight:400; color:#388e3c; display:block; font-size:0.98rem;">How much garbage do you throw away per week (in kg)?<br>Example: 2 dustbins/week, each ~5 kg = 10 kg/week</span>
+                            <input type="number" id="wasteKg" min="0" style="margin-top:0.4rem; padding:0.7rem; border-radius:8px; border:1.5px solid #b2dfdb;">
+                        </label>
+                        <label style="font-weight:600;">9. Shopping & Food
+                            <span style="font-weight:400; color:#388e3c; display:block; font-size:0.98rem;">How much do you spend on shopping (clothes, electronics, etc.) per month (in ₹ or $)?<br>How often do you eat meat or dairy?</span>
+                            <input type="number" id="shoppingSpend" min="0" placeholder="₹/month" style="margin-top:0.4rem; width:110px; border-radius:8px; border:1.5px solid #b2dfdb; padding:0.5rem;">
+                            <select id="dietType" style="margin-top:0.4rem; border-radius:8px; border:1.5px solid #b2dfdb; padding:0.5rem;">
+                                <option value="veg">Vegetarian</option>
+                                <option value="nonveg">Non-vegetarian</option>
+                            </select>
+                        </label>
+                        <div style="margin-top:1.5rem; color:#23413f; font-size:1.08rem; background:#e0ffe7; border-radius:8px; padding:1.2rem;">
+                            <b>Calculation Guide:</b><br>
+                            1 kWh = 0.82 kg CO₂<br>
+                            1 LPG cylinder = 42.5 kg CO₂<br>
+                            1 unit PNG (SCM) = 1.9 kg CO₂<br>
+                            Petrol Car: 0.19 kg CO₂/km<br>
+                            Diesel Car: 0.23 kg CO₂/km<br>
+                            Bike/Scooter: 0.09 kg CO₂/km<br>
+                            Bus: 0.09 kg CO₂/km<br>
+                            Train/Metro: 0.04 kg CO₂/km<br>
+                            1,000 litres water = 0.29 kg CO₂<br>
+                            1 kg waste = 1.8 kg CO₂<br>
+                            ₹1,000 = 5 kg CO₂<br>
+                            Vegetarian: 0.5 tCO₂/year per person<br>
+                            Non-vegetarian: 1.6 tCO₂/year per person
+                        </div>
+                    </form>
                 </div>
-                <div class="input-group">
-                    <label for="monthlyElectricity">Monthly Electricity Usage (kWh)</label>
-                    <input type="number" id="monthlyElectricity" min="0" placeholder="Enter amount">
-                </div>
-            </div>
-        `;
+                `;
     }
 
     function calculateBuildingScore() {

@@ -445,3 +445,403 @@ Inserted row: Array
     [co2] => 4.59
 )
 
+Raw input: [{"appliance":"Air Conditioner","units":1,"watt":1500,"hours":6,"kwh":270,"co2":229.5},{"appliance":"Refrigerator","units":1,"watt":150,"hours":24,"kwh":108,"co2":91.8},{"appliance":"Laptop","units":1,"watt":60,"hours":6,"kwh":10.8,"co2":9.18},{"appliance":"Tube Light","units":1,"watt":20,"hours":5,"kwh":3,"co2":2.55}]
+Decoded data: Array
+(
+    [0] => Array
+        (
+            [appliance] => Air Conditioner
+            [units] => 1
+            [watt] => 1500
+            [hours] => 6
+            [kwh] => 270
+            [co2] => 229.5
+        )
+
+    [1] => Array
+        (
+            [appliance] => Refrigerator
+            [units] => 1
+            [watt] => 150
+            [hours] => 24
+            [kwh] => 108
+            [co2] => 91.8
+        )
+
+    [2] => Array
+        (
+            [appliance] => Laptop
+            [units] => 1
+            [watt] => 60
+            [hours] => 6
+            [kwh] => 10.8
+            [co2] => 9.18
+        )
+
+    [3] => Array
+        (
+            [appliance] => Tube Light
+            [units] => 1
+            [watt] => 20
+            [hours] => 5
+            [kwh] => 3
+            [co2] => 2.55
+        )
+
+)
+
+Inserted row: Array
+(
+    [appliance] => Air Conditioner
+    [units] => 1
+    [watt] => 1500
+    [hours] => 6
+    [kwh] => 270
+    [co2] => 229.5
+)
+
+Inserted row: Array
+(
+    [appliance] => Refrigerator
+    [units] => 1
+    [watt] => 150
+    [hours] => 24
+    [kwh] => 108
+    [co2] => 91.8
+)
+
+Inserted row: Array
+(
+    [appliance] => Laptop
+    [units] => 1
+    [watt] => 60
+    [hours] => 6
+    [kwh] => 10.8
+    [co2] => 9.18
+)
+
+Inserted row: Array
+(
+    [appliance] => Tube Light
+    [units] => 1
+    [watt] => 20
+    [hours] => 5
+    [kwh] => 3
+    [co2] => 2.55
+)
+
+Raw input: [{"appliance":"Refrigerator","units":1,"watt":150,"hours":24,"kwh":108,"co2":91.8},{"appliance":"Laptop","units":1,"watt":60,"hours":6,"kwh":10.8,"co2":9.18},{"appliance":"WiFi Router","units":1,"watt":10,"hours":24,"kwh":7.2,"co2":6.12},{"appliance":"LED Bulb","units":3,"watt":9,"hours":6,"kwh":4.86,"co2":4.131}]
+Decoded data: Array
+(
+    [0] => Array
+        (
+            [appliance] => Refrigerator
+            [units] => 1
+            [watt] => 150
+            [hours] => 24
+            [kwh] => 108
+            [co2] => 91.8
+        )
+
+    [1] => Array
+        (
+            [appliance] => Laptop
+            [units] => 1
+            [watt] => 60
+            [hours] => 6
+            [kwh] => 10.8
+            [co2] => 9.18
+        )
+
+    [2] => Array
+        (
+            [appliance] => WiFi Router
+            [units] => 1
+            [watt] => 10
+            [hours] => 24
+            [kwh] => 7.2
+            [co2] => 6.12
+        )
+
+    [3] => Array
+        (
+            [appliance] => LED Bulb
+            [units] => 3
+            [watt] => 9
+            [hours] => 6
+            [kwh] => 4.86
+            [co2] => 4.131
+        )
+
+)
+
+Inserted row: Array
+(
+    [appliance] => Refrigerator
+    [units] => 1
+    [watt] => 150
+    [hours] => 24
+    [kwh] => 108
+    [co2] => 91.8
+)
+
+Inserted row: Array
+(
+    [appliance] => Laptop
+    [units] => 1
+    [watt] => 60
+    [hours] => 6
+    [kwh] => 10.8
+    [co2] => 9.18
+)
+
+Inserted row: Array
+(
+    [appliance] => WiFi Router
+    [units] => 1
+    [watt] => 10
+    [hours] => 24
+    [kwh] => 7.2
+    [co2] => 6.12
+)
+
+Inserted row: Array
+(
+    [appliance] => LED Bulb
+    [units] => 3
+    [watt] => 9
+    [hours] => 6
+    [kwh] => 4.86
+    [co2] => 4.131
+)
+
+Raw input: [{"appliance":"Air Conditioner","units":1,"watt":1500,"hours":6,"kwh":270,"co2":229.5},{"appliance":"Refrigerator","units":1,"watt":150,"hours":24,"kwh":108,"co2":91.8},{"appliance":"Laptop","units":1,"watt":60,"hours":6,"kwh":10.8,"co2":9.18},{"appliance":"WiFi Router","units":1,"watt":10,"hours":24,"kwh":7.2,"co2":6.12},{"appliance":"Tube Light","units":1,"watt":20,"hours":5,"kwh":3,"co2":2.55},{"appliance":"LED Bulb","units":1,"watt":9,"hours":4,"kwh":1.08,"co2":0.918}]
+Decoded data: Array
+(
+    [0] => Array
+        (
+            [appliance] => Air Conditioner
+            [units] => 1
+            [watt] => 1500
+            [hours] => 6
+            [kwh] => 270
+            [co2] => 229.5
+        )
+
+    [1] => Array
+        (
+            [appliance] => Refrigerator
+            [units] => 1
+            [watt] => 150
+            [hours] => 24
+            [kwh] => 108
+            [co2] => 91.8
+        )
+
+    [2] => Array
+        (
+            [appliance] => Laptop
+            [units] => 1
+            [watt] => 60
+            [hours] => 6
+            [kwh] => 10.8
+            [co2] => 9.18
+        )
+
+    [3] => Array
+        (
+            [appliance] => WiFi Router
+            [units] => 1
+            [watt] => 10
+            [hours] => 24
+            [kwh] => 7.2
+            [co2] => 6.12
+        )
+
+    [4] => Array
+        (
+            [appliance] => Tube Light
+            [units] => 1
+            [watt] => 20
+            [hours] => 5
+            [kwh] => 3
+            [co2] => 2.55
+        )
+
+    [5] => Array
+        (
+            [appliance] => LED Bulb
+            [units] => 1
+            [watt] => 9
+            [hours] => 4
+            [kwh] => 1.08
+            [co2] => 0.918
+        )
+
+)
+
+Inserted row: Array
+(
+    [appliance] => Air Conditioner
+    [units] => 1
+    [watt] => 1500
+    [hours] => 6
+    [kwh] => 270
+    [co2] => 229.5
+)
+
+Inserted row: Array
+(
+    [appliance] => Refrigerator
+    [units] => 1
+    [watt] => 150
+    [hours] => 24
+    [kwh] => 108
+    [co2] => 91.8
+)
+
+Inserted row: Array
+(
+    [appliance] => Laptop
+    [units] => 1
+    [watt] => 60
+    [hours] => 6
+    [kwh] => 10.8
+    [co2] => 9.18
+)
+
+Inserted row: Array
+(
+    [appliance] => WiFi Router
+    [units] => 1
+    [watt] => 10
+    [hours] => 24
+    [kwh] => 7.2
+    [co2] => 6.12
+)
+
+Inserted row: Array
+(
+    [appliance] => Tube Light
+    [units] => 1
+    [watt] => 20
+    [hours] => 5
+    [kwh] => 3
+    [co2] => 2.55
+)
+
+Inserted row: Array
+(
+    [appliance] => LED Bulb
+    [units] => 1
+    [watt] => 9
+    [hours] => 4
+    [kwh] => 1.08
+    [co2] => 0.918
+)
+
+Raw input: [{"type":"fuel","totalFuel":100,"totalEmissions":231,"details":[{"type":"car_petrol","units":1,"usage":50,"usageType":"distance","period":"day","fuel":100,"emissions":231}],"date":"2025-09-28T19:21:37.202Z"}]
+Decoded data: Array
+(
+    [0] => Array
+        (
+            [type] => fuel
+            [totalFuel] => 100
+            [totalEmissions] => 231
+            [details] => Array
+                (
+                    [0] => Array
+                        (
+                            [type] => car_petrol
+                            [units] => 1
+                            [usage] => 50
+                            [usageType] => distance
+                            [period] => day
+                            [fuel] => 100
+                            [emissions] => 231
+                        )
+
+                )
+
+            [date] => 2025-09-28T19:21:37.202Z
+        )
+
+)
+
+Skipped row (not for emissions table): Array
+(
+    [type] => fuel
+    [totalFuel] => 100
+    [totalEmissions] => 231
+    [details] => Array
+        (
+            [0] => Array
+                (
+                    [type] => car_petrol
+                    [units] => 1
+                    [usage] => 50
+                    [usageType] => distance
+                    [period] => day
+                    [fuel] => 100
+                    [emissions] => 231
+                )
+
+        )
+
+    [date] => 2025-09-28T19:21:37.202Z
+)
+
+Raw input: [{"type":"water","volume":5,"energy":2.75,"emissions":1.9689999999999999,"state":"Gujarat","includeWastewater":false,"date":"2025-09-28T19:21:54.992Z"}]
+Decoded data: Array
+(
+    [0] => Array
+        (
+            [type] => water
+            [volume] => 5
+            [energy] => 2.75
+            [emissions] => 1.969
+            [state] => Gujarat
+            [includeWastewater] => 
+            [date] => 2025-09-28T19:21:54.992Z
+        )
+
+)
+
+Skipped row (not for emissions table): Array
+(
+    [type] => water
+    [volume] => 5
+    [energy] => 2.75
+    [emissions] => 1.969
+    [state] => Gujarat
+    [includeWastewater] => 
+    [date] => 2025-09-28T19:21:54.992Z
+)
+
+Raw input: [{"type":"water","volume":5,"energy":2.75,"emissions":1.9689999999999999,"state":"Gujarat","includeWastewater":false,"date":"2025-09-28T19:26:06.309Z"}]
+Decoded data: Array
+(
+    [0] => Array
+        (
+            [type] => water
+            [volume] => 5
+            [energy] => 2.75
+            [emissions] => 1.969
+            [state] => Gujarat
+            [includeWastewater] => 
+            [date] => 2025-09-28T19:26:06.309Z
+        )
+
+)
+
+Skipped row (not for emissions table): Array
+(
+    [type] => water
+    [volume] => 5
+    [energy] => 2.75
+    [emissions] => 1.969
+    [state] => Gujarat
+    [includeWastewater] => 
+    [date] => 2025-09-28T19:26:06.309Z
+)
+
